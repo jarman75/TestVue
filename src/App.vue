@@ -1,28 +1,27 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <b-container fluid id="app">            			
+		<b-row>			
+			<b-col cols="10"><ListaFacturas/></b-col>			
+		</b-row>
+  </b-container>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ListaFacturas from './components/ListaFacturas.vue'
+import TablaEjemplo from "./components/TablaEjemplo.vue"
+import DetalleFactura from "./components/DetalleFactura.vue"
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
+    components: {
+		ListaFacturas,
+		DetalleFactura
+    }  
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="css">		
+	
 </style>
