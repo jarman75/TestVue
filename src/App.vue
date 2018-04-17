@@ -1,7 +1,7 @@
 <template>
   <b-container fluid id="app">            			
 		<b-row>			
-			<b-col cols="10"><ListaFacturas/></b-col>			
+			<b-col><ListaFacturas/></b-col>			
 		</b-row>
   </b-container>
 </template>

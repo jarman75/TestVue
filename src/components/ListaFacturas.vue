@@ -16,13 +16,17 @@
       </b-col>
     </b-row>    
     
-    <!-- grid -->
+    <!-- grid 
+        
+        :items="myProvider" 
+    -->
     <b-table striped hover stacked="md"
+        :busy.sync="isBusy"
         :items="items" 
         :fields="fields"
         :current-page="currentPage"
         :per-page="perPage"
-        :filter="filter"
+        :filter="filter"           
         @filtered="onFiltered">
         <template slot="actions" slot-scope="row">
             <!-- We use @click.stop here to prevent a 'row-clicked' event from also happening -->                    
@@ -57,34 +61,35 @@
 
 <script>
 
-const items = [
-                {id: 1, nfactura: 'P09000121', tarifa: '3.1A', titular: 'Aguas de Alicante', cups: 'ES02386278368273', finicio: '01/01/2018', ffin: '31/01/2018', femision: '01/02/2018', estado: 'Pendiente'},
-                {id: 2, nfactura: 'P09000122', tarifa: '3.1A', titular: 'Aguas de Elche', cups: 'ES02386278368273', finicio: '01/02/2018', ffin: '28/02/2018', femision: '01/03/2018', estado: 'Pagado'},
-                {id: 3, nfactura: 'P09000123', tarifa: '3.1A', titular: 'Aguas de Alicante', cups: 'ES02386278368273', finicio: '01/03/2018', ffin: '31/03/2018', femision: '01/04/2018', estado: 'Pendiente'},
-                {id: 4, nfactura: 'P09000122', tarifa: '3.1A', titular: 'Aguas de Elche', cups: 'ES02386278368273', finicio: '01/01/2018', ffin: '31/01/2018', femision: '01/02/2018', estado: 'Pendiente'},
-                {id: 5, nfactura: 'P09000122', tarifa: '3.1A', titular: 'Aguas de Alicante', cups: 'ES02386278368273', finicio: '01/02/2018', ffin: '28/02/2018', femision: '01/03/2018', estado: 'Pagado'},
-                {id: 6, nfactura: 'P09000124', tarifa: '3.1A', titular: 'Aguas de Elche', cups: 'ES02386278368273', finicio: '01/03/2018', ffin: '31/03/2018', femision: '01/04/2018', estado: 'Pendiente'},
-                {id: 7, nfactura: 'P09000124', tarifa: '3.1A', titular: 'Aguas de Alicante', cups: 'ES02386278368273', finicio: '01/01/2018', ffin: '31/01/2018', femision: '01/02/2018', estado: 'Pendiente'},
-                {id: 8, nfactura: 'P09000125', tarifa: '3.1A', titular: 'Aguas de Elche', cups: 'ES02386278368273', finicio: '01/02/2018', ffin: '28/02/2018', femision: '01/03/2018', estado: 'Pagado'},
-                {id: 9, nfactura: 'P09000125', tarifa: '3.1A', titular: 'Aguas de Alicante', cups: 'ES02386278368273', finicio: '01/03/2018', ffin: '31/03/2018', femision: '01/04/2018', estado: 'Pendiente'},
-                {id: 10, nfactura: 'P09000125', tarifa: '3.1A', titular: 'Aguas de Elche', cups: 'ES02386278368273', finicio: '01/03/2018', ffin: '31/03/2018', femision: '01/04/2018', estado: 'Pendiente'},
-]
+ const items = [{"Id":4,"FefNfactura":"P00000001","FefNpoliza":"POLIZA1","FefCebe":"CEBE1","FefTipofactura":"00","FefTaxidentificationnumber":"B21456789","FefCorporatename":"AGUAS DE ALICANTE","FefCups":"ESCUPS001","FefAddress":"AVD.LIBERTAD,11","FefPostcode":"03204","FefTown":"ELCHE","FefProvince":"ALICANTE","FefTarifadeaccesoatr":"3.1A","FefContratoacceso":"CT2112345","FefPotcontratadap1":10.0,"FefPotcontratadap2":10.0,"FefPotcontratadap3":10.0},{"Id":5,"FefNfactura":"P00000002","FefNpoliza":"POLIZA1","FefCebe":"CEBE1","FefTipofactura":"00","FefTaxidentificationnumber":"B21456789","FefCorporatename":"AGUAS DE ALICANTE","FefCups":"ESCUPS001","FefAddress":"AVD.LIBERTAD,11","FefPostcode":"03204","FefTown":"ELCHE","FefProvince":"ALICANTE","FefTarifadeaccesoatr":"3.1A","FefContratoacceso":"CT2112345","FefPotcontratadap1":10.0,"FefPotcontratadap2":10.0,"FefPotcontratadap3":10.0},{"Id":6,"FefNfactura":"P00000003","FefNpoliza":"POLIZA1","FefCebe":"CEBE1","FefTipofactura":"00","FefTaxidentificationnumber":"B21456789","FefCorporatename":"AGUAS DE ALICANTE","FefCups":"ESCUPS001","FefAddress":"AVD.LIBERTAD,11","FefPostcode":"03204","FefTown":"ELCHE","FefProvince":"ALICANTE","FefTarifadeaccesoatr":"3.1A","FefContratoacceso":"CT2112345","FefPotcontratadap1":10.0,"FefPotcontratadap2":10.0,"FefPotcontratadap3":10.0},{"Id":7,"FefNfactura":"P00000008","FefNpoliza":"POLIZA1","FefCebe":"CEBE1","FefTipofactura":"00","FefTaxidentificationnumber":"B21456789","FefCorporatename":"AGUAS DE ALICANTE","FefCups":"ESCUPS001","FefAddress":"AVD.LIBERTAD,11","FefPostcode":"03204","FefTown":"ELCHE","FefProvince":"ALICANTE","FefTarifadeaccesoatr":"3.1A","FefContratoacceso":"CT2112345","FefPotcontratadap1":10.0,"FefPotcontratadap2":10.0,"FefPotcontratadap3":10.0},{"Id":15,"FefNfactura":"P00000012","FefNpoliza":"POLIZA1","FefCebe":"CEBE1","FefTipofactura":"00","FefTaxidentificationnumber":"B21456789","FefCorporatename":"AGUAS DE ALICANTE","FefCups":"ESCUPS001","FefAddress":"AVD.LIBERTAD,11","FefPostcode":"03204","FefTown":"ELCHE","FefProvince":"ALICANTE","FefTarifadeaccesoatr":"3.1A","FefContratoacceso":"CT2112345","FefPotcontratadap1":10.0,"FefPotcontratadap2":10.0,"FefPotcontratadap3":10.0},{"Id":16,"FefNfactura":"P00000013","FefNpoliza":"POLIZA1","FefCebe":"CEBE1","FefTipofactura":"00","FefTaxidentificationnumber":"B21456789","FefCorporatename":"AGUAS DE ALICANTE","FefCups":"ESCUPS001","FefAddress":"AVD.LIBERTAD,11","FefPostcode":"03204","FefTown":"ELCHE","FefProvince":"ALICANTE","FefTarifadeaccesoatr":"3.1A","FefContratoacceso":"CT2112345","FefPotcontratadap1":10.0,"FefPotcontratadap2":10.0,"FefPotcontratadap3":10.0},{"Id":17,"FefNfactura":"P00000014","FefNpoliza":"POLIZA1","FefCebe":"CEBE1","FefTipofactura":"00","FefTaxidentificationnumber":"B21456789","FefCorporatename":"AGUAS DE ALICANTE","FefCups":"ESCUPS001","FefAddress":"AVD.LIBERTAD,11","FefPostcode":"03204","FefTown":"ELCHE","FefProvince":"ALICANTE","FefTarifadeaccesoatr":"3.1A","FefContratoacceso":"CT2112345","FefPotcontratadap1":10.0,"FefPotcontratadap2":10.0,"FefPotcontratadap3":10.0},{"Id":18,"FefNfactura":"P00000015","FefNpoliza":"POLIZA1","FefCebe":"CEBE1","FefTipofactura":"00","FefTaxidentificationnumber":"B21456789","FefCorporatename":"AGUAS DE ALICANTE","FefCups":"ESCUPS001","FefAddress":"AVD.LIBERTAD,11","FefPostcode":"03204","FefTown":"ELCHE","FefProvince":"ALICANTE","FefTarifadeaccesoatr":"3.1A","FefContratoacceso":"CT2112345","FefPotcontratadap1":10.0,"FefPotcontratadap2":10.0,"FefPotcontratadap3":10.0},{"Id":19,"FefNfactura":"P00000016","FefNpoliza":"POLIZA1","FefCebe":"CEBE1","FefTipofactura":"00","FefTaxidentificationnumber":"B42456789","FefCorporatename":"AGUAS DE ELCHE","FefCups":"ESCUPS001","FefAddress":"AVD.LIBERTAD,11","FefPostcode":"03204","FefTown":"ELCHE","FefProvince":"ALICANTE","FefTarifadeaccesoatr":"6.1","FefContratoacceso":"CT2112345","FefPotcontratadap1":10.0,"FefPotcontratadap2":10.0,"FefPotcontratadap3":10.0}]
 
-export default {
-    components: {
-        
-    },
-    data() {
-        return {
-            items: items,
+
+import axios from 'axios'
+
+export default {    
+    
+    data() {        
+        return {      
+            isBusy: false,                              
+            items : items,
             fields: [
-                { key:'nfactura', label:'Factura'}, 
-                { key:'titular', label: 'Titular'},
-                { key:'cups', label: 'Cups'},
-                { key: 'finicio', label: 'Fecha Inicio'},
-                { key: 'ffin', label: 'Fecha fin'},
-                { key: 'femision', label: 'Fecha Emisión'},
-                { key: 'actions', label: 'Actions'}
+                        {key: 'FefNfactura' 			    , label:'Factura'               },
+                        {key: 'FefNpoliza' 				    , label:'Poliza'                },
+                        {key: 'FefCebe' 				    , label:'Cebe'                  },
+                        {key: 'FefTipofactura' 			    , label:'Tipo'                  },
+                        {key: 'FefTaxidentificationnumber'  , label:'Cif'                   },
+                        {key: 'FefCorporatename' 			, label:'Titular'               },
+                        {key: 'FefCups' 					, label:'Cups'                  },
+                        {key: 'FefAddress' 					, label:'Dirección'             },
+                        {key: 'FefPostcode' 				, label:'C.Postal'              },
+                        {key: 'FefTown' 					, label:'Ciudad'                },
+                        {key: 'FefProvince' 				, label:'Provincia'             },
+                        {key: 'FefTarifadeaccesoatr' 		, label:'Tarifa'                },
+                        {key: 'FefContratoacceso' 			, label:'Contrato'              },
+                        {key: 'FefPotcontratadap1' 			, label:'Potencia contratada p1'},
+                        {key: 'FefPotcontratadap2' 			, label:'Potencia contratada p2'},
+                        {key: 'FefPotcontratadap3' 			, label:'Potencia contratada p3'},
+                        {key: 'Id'                          , label:'Id'                    }
             ],            
             currentPage: 1,
             perPage: 5,
@@ -92,15 +97,25 @@ export default {
             pageOptions: [ 5, 10, 15 ],
             filter: null            
         }
-    },
-    methods: {
-        info (item, index, button) {         
+    },      
+    methods: {    
+        myProvider (ctx) {
+            this.isBusy = true
+            let promise = axios.get('http://localhost:62369/api/facturas')
+            return promise.then((data)=> {
+                const items = data.items
+                this.isBusy = false
+                return (items)
+            }).catch(error => {
+                this.isBusy = false
+                return []
+            })
         },
         onFiltered (filteredItems) {     
             this.totalRows = filteredItems.length
             this.currentPage = 1    
-        }
-    }
+        },            
+    }                                              
 }
 </script>
 
