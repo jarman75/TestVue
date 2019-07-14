@@ -1,5 +1,5 @@
 {
-  "name": "my-proyect",
+  "name": "testvue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap-vue": "^2.0.0-rc.6",
-    "vue": "^2.5.13"
+    "npm": "^6.8.0",
+    "vue": "^2.6.6"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.6",
@@ -39,5 +40,17 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jarman75/TestVue.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jarman75/TestVue/issues"
+  },
+  "homepage": "https://github.com/jarman75/TestVue#readme",
+  "description": ""
 }
