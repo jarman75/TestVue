@@ -41,3 +41,30 @@ var app5 = new Vue({
       }  
     },
 })
+
+var app6 = new Vue({
+    el: '#app6',
+    data: {
+        message: 'two-way binding'
+    }
+})
+
+
+Vue.component('todo-item', {
+    props: ['todo'],
+    template: '<li>{{ todo.text }}</li>'
+})
+
+var app7 = new Vue({
+    el: '#app7',
+    data: {
+        graceryList: [
+            { id: 0, text: 'Vegetables' },
+            { id: 1, text: 'Cheese' },
+            { id:2 , text: 'Sugar' }
+        ]
+    }
+})
+
+
+  
