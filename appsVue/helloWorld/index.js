@@ -66,5 +66,14 @@ var app7 = new Vue({
     }
 })
 
+var app8 = new Vue({
+    el: '#app8',
+    data: {
+        attValue: 'https://www.google.es',
+        attName : 'href',
+        urlName: 'google'
+    }
+})
+
 
   
