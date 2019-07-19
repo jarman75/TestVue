@@ -2,6 +2,8 @@
     <head>
         <!-- development version, includes helpful console warnings -->
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
     </head>
     <body>
 
@@ -52,7 +54,24 @@
 
         <div id="app8">
             <a v-bind:href="attValue">{{urlName}}</a>
+            <a :href="attValue">{{urlName}}</a>
+            <a v-on:click="doSomething">ClickMe</a>
+            <a @click="doSomething">ClickMe</a>
         </div>
+
+        <div id="example">
+            <p>Original message: "{{ message }}"</p>
+            <p>Computed reverse message: "{{ reversedMessage }}"</p>
+            <p>Hora: "{{ now }}"</p>
+        </div>
+
+        <div id="watch-example">
+            <p>
+              Ask a yes/no question:
+              <input v-model="question">
+            </p>
+            <p>{{ answer }}</p>
+          </div>
 
         <script src="index.js"></script>
     </body>
