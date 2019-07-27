@@ -4,31 +4,48 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
-    <!-- <script src="main.js"></script> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
     <!-- development version, includes helpful console warnings -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>   
-   
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>      
 </head>
-<body>
-    <div id="components-demo">
-        <div>
-            <button-counter></button-counter>
-            <button-counter></button-counter>
-        </div> 
-    </div>
 
-    <div id="blog-post-demo" >
-        <blog-post title="titulo a pelo"></blog-post>
+<body>
+
+<div id="app">    
+    <global-head></global-head>
+
+    <div :style="{ fontSize: postFontSize + 'em' }">
         <blog-post
             v-for="post in posts"
             v-bind:key="post.id"
-            v-bind:title="post.title">
-        </blog-post>
-        
+            v-bind:post="post"                        
+            v-on:enlarge-text="postFontSize += 0.1"
+        ></blog-post>
     </div>
+
+    <!-- <button-counter>es local de app2, no va en app</button-counter> -->
+</div>
+
+<div id="app2">
+    <global-head></global-head>
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+
+    <div>
+        <human-data 
+            v-for="human in humans"
+            v-bind:key="human.id"            
+            v-bind:name="human.name"
+            v-bind:age="human.age"
+            v-on:validator="validator"
+            >
+        </human-data>
+    </div>
+        
     
-    <script src="component1.js"></script>
+</div>           
+
+<script src="components.js"></script>
+
 </body>
 </html>

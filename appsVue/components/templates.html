@@ -1,0 +1,14 @@
+<div class="blog-post">
+    <h3>{{ post.title }}</h3>
+    <button v-on:click="$emit('enlarge-text')">
+        Enlarge text
+    </button>
+    <div v-html="post.content"></div>
+</div>
+
+<div class="human-data">
+    <h3>{{ id }}</h3>
+    <input v-model="name"/>
+    <input v-model="age"/>
+    <button v-on:click="validator">Validar</button>
+</div>
