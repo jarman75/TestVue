@@ -73,5 +73,10 @@ Vue.component('course-css', {
 })
 
 new Vue({
-    el: '#app'
+    el: '#app',
+    methods: {
+        addToCart: function() {
+            console.log("añadido al carro")
+        }
+    }
 })
