@@ -1,7 +1,7 @@
 //componente global
 Vue.component('global-head', {  
   template: '<h3>Global component</h3>'
-})
+}) 
 
 var ComponentA = {
     data: function () {
@@ -32,7 +32,7 @@ var ComponentC = {
       required: true
     },
     age: Number,        
-    val: {
+    other: {
       validator: function(value) {
         return['success','warning','danger'].indexOf(value) !== -1
       }
@@ -42,7 +42,7 @@ var ComponentC = {
     <div class="human-data">      
       <input v-model="name"/>
       <input v-model="age"/>
-      <button v-on:click="$emit('validator')">Validar</button>
+      <h3>{{ other }}</h3>      
     </div>
   `
 }
@@ -70,9 +70,9 @@ new Vue({
   },
   data: {
     humans: [
-      { id: 1, name: 'David', age: 25 },
-      { id: 2, name: 'Carl',  age: 35 },
-      { id: 3, name: 'Max',   age: 45 },
+      { id: 1, name: 'David', age: 25, other: 'warning' },
+      { id: 2, name: 'Carl',  age: 35, other: 'success' },
+      { id: 3, name: 'Joe',   age: 18, other: 'danger' },
     ]
   }  
 })
