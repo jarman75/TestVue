@@ -1,4 +1,4 @@
-const app = new Vue({
+new Vue({
     el: '#app',    
     data: {
         user: { name: 'nobody', password: '123456' },
