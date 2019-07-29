@@ -5,8 +5,8 @@ const courseHeader = {
     },
     template: `
     <header :class="course-header" v-once>
-        <img :src="header.image" :alt="header.title">
-        <h2>{{ header.title }}</h2>        
+        <img :src="image" :alt="title">
+        <h2>{{ title }}</h2>        
     </header>
     `
 }
@@ -19,7 +19,7 @@ const courseContent = {
     },
     template: `
     <main class="course-content">
-        <img src="http://lorempixel.com/300/150/" alt="">
+        <img src="http://lorempixel.com/300/150/" alt="title">
         <section>
             <h3>{{ title }}</h3>
             <h4>{{ subtitle }}</h4>
@@ -131,10 +131,10 @@ Vue.component('marketplace', {
 })
 
 const app = new Vue({
-    el: '#app',    
+    el: '#app',        
     data: {
         courses: [
-            {id: 1, title: 'Curso Avanzado Javscript', subtitle: 'Experto', description: 'Especializarse en js', type: 'course-js'},
+            {id: 1, title: 'Curso Javscript', subtitle: 'Experto', description: 'Especializarse en js', type: 'course-js'},
             {id: 2, title: 'Curso Basico CSS', subtitle: 'Basico', description: 'Iniciarse en CSS', type: 'course-css'},
             {id: 3, title: 'Curso Avanzado CSS', subtitle: 'Medio', description: 'Avanzar en CSS3', type: 'course-css'},
             {id: 4, title: 'Curso Basico Javscript', subtitle: 'Basico', description: 'Iniciarse en js', type: 'course-js'},

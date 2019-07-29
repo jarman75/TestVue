@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel = "stylesheet" href = "app.css">
     <title>Market Place</title>
 </head>
 <body>
@@ -18,6 +19,10 @@
                 @add="addToCart"
             ></component>
         </marketplace>
+
+        <ul class="cart">
+            <li v-for="course in cart">{{ course.title }} - {{ course.months }} meses</li>
+        </ul>
     </div>
 
     <!-- development version, includes helpful console warnings -->
