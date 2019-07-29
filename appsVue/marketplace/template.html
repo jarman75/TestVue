@@ -1,23 +1,45 @@
-<div :class="["course", styleClass]">
+<div :class="['course', styleClass]">
+    <course-header
+        :title="header.title"
+        :image="header.image">
+    </course-header>
     
-    <header class="course-header" v-once>
-        <img :src="header.image" :alt="header.title">
-        <h2>{{ header.title }}</h2>        
-    </header>
+    <course-content
+        :title="title"
+        :subtitle="subtitle"
+        :description="description">
+    </course-content>
     
-    <main class="course-content">
-        <img src="http://lorempixel.com/300/150/" alt="">
-        <section>
-            <h3>{{ title }}</h3>
-            <h4>{{ subtitle }}</h4>
-            <p> {{ description }}</p>
-        </section>
-    </main>
+    <course-footer
+        :months="months"
+        @add="add">
+    </course-footer>    
+</div>
 
-    <footer class="course-footer">
-        <label for="meses">MESES</label>
-        <input id="meses" type="number" min="0" max=12 v-model="months" />
-        <button @click="add">AÑADIR</button>
-    </footer>
-    
+
+<main :class="course-header" v-once>
+    <img :src="header.image" :alt="header.title">
+    <h2>{{ header.title }}</h2>        
+</main>
+
+
+<header class="course-content">
+    <img src="http://lorempixel.com/300/150/" alt="">
+    <section>
+        <h3>{{ title }}</h3>
+        <h4>{{ subtitle }}</h4>
+        <p> {{ description }}</p>
+    </section>
+</header>
+
+
+<footer class="course-footer">
+    <label for="meses">MESES</label>
+    <input id="meses" type="number" min="0" max=12 v-model="months" />
+    <button @click="add">AÑADIR</button>
+</footer>
+
+
+<div class="marketplace">
+    <slot></slot>
 </div>

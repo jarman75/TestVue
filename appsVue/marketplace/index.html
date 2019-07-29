@@ -7,19 +7,17 @@
 </head>
 <body>
     <div id="app">
-        <course-js 
-            title="Curso JavaScript"
-            subtitle="Curso introductorio"
-            description="curso para aprender"
-            @add="addToCart">
-        </course-js>
-        
-        <course-css
-            title="Curso CSS"
-            subtitle="Curso avanzado"
-            description="curso profesional"
-            @add="addToCart">
-        </course-css>        
+        <marketplace>
+            <component
+                v-for="course in courses"
+                :is="course.type"
+                :key="course.id"
+                :title="course.title"
+                :subtitle="course.subtitle"
+                :description="course.description"
+                @add="addToCart"
+            ></component>
+        </marketplace>
     </div>
 
     <!-- development version, includes helpful console warnings -->
