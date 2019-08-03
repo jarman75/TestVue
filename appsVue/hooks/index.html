@@ -8,7 +8,12 @@
 </head>
 <body>
     <div id="app">
-        <component1></component1>
+        <component1
+            v-for="humano in humanos" 
+            :key="humano.id"
+            :nombre="humano.nombre"
+            :apellidos="humano.apellidos"
+        ></component1>
     </div>
 
     <!-- development version, includes helpful console warnings -->
